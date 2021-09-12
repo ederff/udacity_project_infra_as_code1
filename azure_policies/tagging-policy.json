@@ -1,0 +1,17 @@
+{
+    "if": {
+        "anyOf": [{
+            "field": "tags['department']",
+            "exists": false
+        },{
+            "field": "tags['environment']",
+            "exists": false
+        },{
+            "field": "tags['environment']",
+            "notIn": ["prod", "dev"]
+        }
+    ]},
+    "then": {
+        "effect": "deny"
+    }
+}
