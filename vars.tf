@@ -27,3 +27,7 @@ variable "admin_user" {
 variable "number_of_vms" {
     description = "Number of VMs to deploy behind the Load Balancer"
 }
+
+variable "source_image_id" {
+    description = "The image id that you want to use as source image for VMs."
+}

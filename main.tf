@@ -122,7 +122,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   network_interface_ids = [element(azurerm_network_interface.main.*.id, count.index)]
 
 
-  source_image_id = "/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/packer-rg/providers/Microsoft.Compute/images/myPackerImage"
+  source_image_id = var.source_image_id
 
   os_disk {
     name = "${var.prefix}-osdisk-${count.index}"
