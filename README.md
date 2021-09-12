@@ -77,13 +77,56 @@ For this project, you will write a Packer template and a Terraform template to d
 
 At the end you will have your complete infrastructure with a Load Balancer in front of your VMs and network configuration and security applied.
 
-Output for terraform plan:
 
-14 to add, 0 to change, 0 to destroy.
+Output for `terraform apply "solution.plan"`:
 
-Output for terraform apply:
+```
+azurerm_resource_group.main: Creating...
+azurerm_resource_group.main: Creation complete after 3s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg]
+azurerm_virtual_network.main: Creating...
+azurerm_public_ip.main: Creating...
+azurerm_availability_set.main: Creating...
+azurerm_availability_set.main: Creation complete after 6s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Compute/availabilitySets/app-aset]
+azurerm_public_ip.main: Creation complete after 8s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/publicIPAddresses/testing-publicIP]
+azurerm_lb.main: Creating...
+azurerm_virtual_network.main: Still creating... [10s elapsed]
+azurerm_virtual_network.main: Creation complete after 11s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/virtualNetworks/testing-network]
+azurerm_subnet.main: Creating...
+azurerm_lb.main: Creation complete after 6s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/loadBalancers/AppLoadBalancer]
+azurerm_lb_backend_address_pool.main: Creating...
+azurerm_subnet.main: Creation complete after 5s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/virtualNetworks/testing-network/subnets/internal]
+azurerm_network_interface.main[1]: Creating...
+azurerm_network_interface.main[0]: Creating...
+azurerm_network_security_group.main: Creating...
+azurerm_lb_backend_address_pool.main: Creation complete after 4s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/loadBalancers/AppLoadBalancer/backendAddressPools/BackEndAddressPool]
+azurerm_network_interface.main[1]: Creation complete after 6s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/networkInterfaces/testing-nic-1]
+azurerm_network_security_group.main: Creation complete after 10s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/networkSecurityGroups/testing-nsg]
+azurerm_network_interface.main[0]: Still creating... [10s elapsed]
+azurerm_network_interface.main[0]: Creation complete after 10s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/networkInterfaces/testing-nic-0]
+azurerm_network_interface_backend_address_pool_association.main[0]: Creating...
+azurerm_network_interface_backend_address_pool_association.main[1]: Creating...
+azurerm_linux_virtual_machine.main[0]: Creating...
+azurerm_linux_virtual_machine.main[1]: Creating...
+azurerm_network_interface_backend_address_pool_association.main[0]: Creation complete after 4s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/networkInterfaces/testing-nic-0/ipConfigurations/internal|/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/loadBalancers/AppLoadBalancer/backendAddressPools/BackEndAddressPool]
+azurerm_network_interface_backend_address_pool_association.main[1]: Creation complete after 4s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/networkInterfaces/testing-nic-1/ipConfigurations/internal|/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Network/loadBalancers/AppLoadBalancer/backendAddressPools/BackEndAddressPool]
+azurerm_linux_virtual_machine.main[0]: Still creating... [10s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still creating... [10s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still creating... [20s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still creating... [20s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still creating... [30s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still creating... [30s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still creating... [40s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still creating... [40s elapsed]
+azurerm_linux_virtual_machine.main[0]: Still creating... [50s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still creating... [50s elapsed]
+azurerm_linux_virtual_machine.main[0]: Creation complete after 55s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Compute/virtualMachines/testing-vm-0]
+azurerm_linux_virtual_machine.main[1]: Still creating... [1m0s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still creating... [1m10s elapsed]
+azurerm_linux_virtual_machine.main[1]: Still creating... [1m20s elapsed]
+azurerm_linux_virtual_machine.main[1]: Creation complete after 1m26s [id=/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/testing-rg/providers/Microsoft.Compute/virtualMachines/testing-vm-1]
 
 Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
+```
 
 
 If you face any kind of issue, please open an issue here with output log details.
