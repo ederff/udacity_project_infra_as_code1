@@ -53,6 +53,8 @@ For this project, you will write a Packer template and a Terraform template to d
     - "vars.tf" file contains customized parameters that you can change default values, or be requested to fill during the deployment execution, like number of vms to deploy, and user name, admin parameters, among others.
 
 
+    **How to change "vars.tf" file:**
+
 
     Make sure the variables are correct, and also the required tags "department" and "environment" are filled accordingly.
     Also, if you did any changes on image building, make sure to inform the source image id that you built before using packer to use on VMs deployment. 
