@@ -15,8 +15,10 @@ For this project, you will write a Packer template and a Terraform template to d
 4. Deploy your Infrastructure using terraform
 
     `terraform init`
-    `terraform plan`
-    `terraform apply`
+
+    `terraform plan -out solution.plan`
+
+    `terraform apply solution.plan`
 
 
 ### Dependencies
