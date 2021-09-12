@@ -22,12 +22,15 @@ variable "admin_password" {
 
 variable "admin_user" {
     description = "Admin User Name"
+    default = "admuser"
 }
 
 variable "number_of_vms" {
     description = "Number of VMs to deploy behind the Load Balancer"
+    default = 2
 }
 
 variable "source_image_id" {
     description = "The image id that you want to use as source image for VMs."
+    default = "/subscriptions/e9627484-84d2-439a-a98e-864f434b5356/resourceGroups/packer-rg/providers/Microsoft.Compute/images/myPackerImage"
 }
